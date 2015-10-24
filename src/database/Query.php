@@ -191,19 +191,22 @@ class Query
      * $sql->limit(30);
      * $sql->limit(30,30);
      *
-     * @param int $limit
-     * @param int $offset
      * @return Query
      */
-    public function limit($limit, $offset = null)
+    public function limit()
     {
         $this->limit = '';
 
-        if(!is_null($offset)) {
-            $this->limit = $offset . ', ';
-        }
+        $args = func_get_args();
 
-        $this->limit .= $limit;
+        switch (func_num_args()) {
+            case 1:
+                $this->limit .= $args[0];
+                break;
+            case 2:
+                $this->limit .= "{$args[0]}, {$args[1]}";
+                break;
+        }
 
         return $this;
     }
