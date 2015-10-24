@@ -153,10 +153,10 @@ class DB extends \PDO
         if ($this->check_columns) {
 
             // use previous columns or get new
-            if (!empty($stmt_key) && empty($this->prev_columns[$stmt_key])) {
-                $this->prev_columns[$stmt_key] = $this->getColumnsFromTable($table);
-                $columns = $this->prev_columns[$stmt_key];
-            } elseif (!empty($stmt_key) && !empty($this->prev_columns[$stmt_key])) {
+            if (!empty($stmt_key)) {
+                if (empty($this->prev_columns[$stmt_key])) {
+                    $this->prev_columns[$stmt_key] = $this->getColumnsFromTable($table);
+                }
                 $columns = $this->prev_columns[$stmt_key];
             } else {
                 $columns = $this->getColumnsFromTable($table);
