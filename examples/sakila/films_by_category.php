@@ -4,7 +4,7 @@ include_once "../../src/database/DB.php";
 include_once "../../src/database/Statement.php";
 include_once "../../src/database/Query.php";
 
-$db = new database\DB(DB_DSN, DB_USER, DB_PASS);
+$db = new Database\DB(DB_DSN, DB_USER, DB_PASS);
 
 class Film {
     public $film_id;

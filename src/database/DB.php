@@ -1,5 +1,5 @@
 <?php
-namespace database;
+namespace Database;
 
 /**
  * DB - MySQL database library

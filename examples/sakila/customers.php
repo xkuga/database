@@ -9,7 +9,7 @@ class City {}
 class Address {}
 class Store {}
 
-$db = new database\DB(DB_DSN, DB_USER, DB_PASS);
+$db = new Database\DB(DB_DSN, DB_USER, DB_PASS);
 
 $db->setFetchTableNames(1);
 $stmt = $db->select("c.customer_id, c.first_name, c.last_name")

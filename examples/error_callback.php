@@ -1,7 +1,7 @@
 <?php
 include "../vendor/autoload.php";
 
-use \database\DB;
+use \Database\DB;
 
 DB::setConfig(array(
     "dsn" => "mysql:host=localhost;dbname=sakila",
