@@ -299,7 +299,7 @@ class DB extends \PDO
      */
     function delete($table, $where, $where_params)
     {
-        $sql = "DELETE FROM " . $table . $this->buildWhere($where);
+        $sql = "DELETE FROM `{$table}`" . $this->buildWhere($where);
         $stmt = $this->executeQuery($sql, $where_params);
 
         return $stmt;
@@ -315,7 +315,7 @@ class DB extends \PDO
      */
     function count($table, $where, $where_params = null)
     {
-        $sql = "SELECT COUNT(*) FROM " . $table . $this->buildWhere($where);
+        $sql = "SELECT COUNT(*) FROM `{$table}`" . $this->buildWhere($where);
         $stmt = $this->executeQuery($sql, $where_params);
 
         return $stmt->fetchColumn();
@@ -412,7 +412,7 @@ class DB extends \PDO
      */
     function getColumnsFromTable($table)
     {
-        $sql = "DESCRIBE $table";
+        $sql = "DESCRIBE `{$table}`";
 
         return $this->executeQuery($sql)
             ->fetchAll(self::FETCH_COLUMN);
